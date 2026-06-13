@@ -1,18 +1,18 @@
-## 概要
+## Summary
 
-<!-- この PR で何を・なぜ変更したか -->
+<!-- What does this PR change, and why? -->
 
-## 変更内容
+## Changes
 
 -
 
-## チェックリスト
+## Checklist
 
-- [ ] `npm run lint` が通る
-- [ ] `npm run typecheck` が通る
-- [ ] `npm test` が通る
-- [ ] 必要に応じて README / ドキュメントを更新した
+- [ ] `npm run lint` passes
+- [ ] `npm run typecheck` passes
+- [ ] `npm test` passes
+- [ ] Updated README / docs if needed
 
-## 関連 Issue
+## Related issues
 
 <!-- Closes #123 -->

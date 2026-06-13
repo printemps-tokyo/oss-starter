@@ -1,31 +1,31 @@
 # Contributing
 
-ありがとうございます。printemps-tokyo の OSS への貢献を歓迎します。
+Thanks for your interest in contributing to a printemps-tokyo project.
 
-## 開発の流れ
+## Development
 
-1. リポジトリを fork / clone
+1. Fork / clone the repository
 2. `npm install`
-3. ブランチを切る: `git switch -c feat/your-change`
-4. 変更を加え、ローカルで検証:
+3. Create a branch: `git switch -c feat/your-change`
+4. Make your change and verify locally:
    ```bash
    npm run lint
    npm run typecheck
    npm test
    ```
-5. コミットして PR を作成
+5. Commit and open a pull request
 
-## コミットメッセージ
+## Commit messages
 
-[Conventional Commits](https://www.conventionalcommits.org/) を推奨します
-(`feat:`, `fix:`, `docs:`, `chore:`, `refactor:`, `test:`)。
+[Conventional Commits](https://www.conventionalcommits.org/) are preferred
+(`feat:`, `fix:`, `docs:`, `chore:`, `refactor:`, `test:`).
 
-## Pull Request
+## Pull requests
 
-- 1 PR は 1 つの目的に絞る
-- CI(lint / typecheck / test / build)が緑であること
-- 挙動が変わる場合は README とテストを更新する
+- Keep one PR focused on a single purpose
+- CI (lint / typecheck / test / build) must be green
+- Update the README and tests when behavior changes
 
-## バグ報告・要望
+## Bug reports and requests
 
-[Issues](../../issues) からテンプレートに沿って投稿してください。
+Please open an [issue](../../issues) using the templates.

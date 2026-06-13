@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: 質問・相談
+  - name: Questions / Discussion
     url: https://github.com/printemps-tokyo/oss-starter/discussions
-    about: バグ・要望以外の質問はこちら
+    about: For questions that are not bug reports or feature requests

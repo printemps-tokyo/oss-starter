@@ -1,18 +1,18 @@
-name: バグ報告
-description: 不具合を報告する
+name: Bug report
+description: Report a problem
 labels: ["bug"]
 body:
   - type: textarea
     id: what-happened
     attributes:
-      label: 何が起きたか
-      description: 期待した挙動と実際の挙動
+      label: What happened
+      description: Expected vs. actual behavior
     validations:
       required: true
   - type: textarea
     id: repro
     attributes:
-      label: 再現手順
+      label: Steps to reproduce
       placeholder: |
         1. ...
         2. ...
@@ -21,7 +21,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: バージョン / 環境
+      label: Version / environment
       placeholder: "v0.1.0 / Node 22 / macOS"
     validations:
       required: false

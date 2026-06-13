@@ -1,15 +1,15 @@
 # Security Policy
 
-## 脆弱性の報告
+## Reporting a vulnerability
 
-セキュリティ上の問題を見つけた場合は、公開 Issue ではなく
-**info@printemps.tokyo** または GitHub の Private vulnerability reporting
-([Security advisories](../../security/advisories/new)) からご連絡ください。
+If you find a security issue, please do not open a public issue. Instead,
+contact us at info@printemps.tokyo or use GitHub's private vulnerability
+reporting ([Security advisories](../../security/advisories/new)).
 
-可能な範囲で以下を含めてください:
+Where possible, please include:
 
-- 影響を受けるバージョン / 環境
-- 再現手順
-- 想定される影響
+- Affected versions / environment
+- Steps to reproduce
+- Expected impact
 
-報告から 72 時間以内の一次返信を目指します。
+We aim to send an initial response within 72 hours.

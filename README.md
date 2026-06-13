@@ -1,42 +1,43 @@
 # oss-starter
 
-> printemps-tokyo の OSS プロジェクト用 TypeScript CLI スターターテンプレート。
+> TypeScript CLI starter template for printemps-tokyo open source projects.
 
 [![CI](https://github.com/printemps-tokyo/oss-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/printemps-tokyo/oss-starter/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-「Use this template」で新しいリポジトリを作り、毎日の小さなツールを最短で公開するための雛形です。
+Click "Use this template" to spin up a new repository and ship a small daily
+tool in minutes.
 
-## 同梱されているもの
+## What's included
 
-- **TypeScript + ESM**: `tsup` でビルド、ライブラリ(`src/index.ts`)とCLI(`src/cli.ts`)の両対応
-- **テスト**: `vitest`
-- **Lint / 型チェック**: `eslint`(flat config, typescript-eslint v8) + `tsc --noEmit`
-- **CI**: Node 20 / 22 で lint・typecheck・test・build (`.github/workflows/ci.yml`)
-- **リリース自動化**: `v*` タグ push で GitHub Release を自動生成。`NPM_TOKEN` を設定すれば npm 公開も有効化 (`.github/workflows/release.yml`)
-- **コミュニティファイル**: Issue / PR テンプレート、CONTRIBUTING、CODE_OF_CONDUCT、SECURITY、MIT LICENSE
+- TypeScript + ESM: built with `tsup`, exposes both a library (`src/index.ts`) and a CLI (`src/cli.ts`)
+- Tests: `vitest`
+- Lint / typecheck: `eslint` (flat config, typescript-eslint v8) + `tsc --noEmit`
+- CI: lint / typecheck / test / build on Node 20 and 22 (`.github/workflows/ci.yml`)
+- Release automation: pushing a `v*` tag creates a GitHub Release. Set an `NPM_TOKEN` secret to also publish to npm (`.github/workflows/release.yml`)
+- Community files: issue / PR templates, CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, MIT LICENSE
 
-## 使い方
+## Usage
 
 ```bash
 npm install
-npm run dev        # ウォッチビルド
-npm test           # テスト
-npm run lint       # Lint
-npm run typecheck  # 型チェック
-npm run build      # dist/ へ出力
+npm run dev        # watch build
+npm test           # run tests
+npm run lint       # lint
+npm run typecheck  # type check
+npm run build      # emit to dist/
 
 node dist/cli.js printemps   # => Hello, printemps!
 ```
 
-## このテンプレートから始めるとき
+## Starting a project from this template
 
-1. GitHub で **Use this template** -> 新規リポジトリ作成
-2. `package.json` の `name` / `description` / `bin` / リポジトリURL を書き換える
-3. このREADMEをツールの内容に置き換える
-4. `src/index.ts` / `src/cli.ts` を実装、`test/` を更新
-5. 公開時は `git tag v0.1.0 && git push --tags` で Release を発行
+1. On GitHub, click "Use this template" -> create a new repository
+2. Update `name` / `description` / `bin` / repository URL in `package.json`
+3. Replace this README with your tool's documentation
+4. Implement `src/index.ts` / `src/cli.ts` and update `test/`
+5. To release, run `git tag v0.1.0 && git push --tags`
 
-## ライセンス
+## License
 
-[MIT](./LICENSE) (c) Yosuke Sakata / printemps.tokyo
+[MIT](./LICENSE) (c) printemps.tokyo
