@@ -45,6 +45,17 @@ export function main(argv: string[]): void {
     return;
   }
 
+  // The only recognized flags are handled above, so any remaining token that
+  // looks like an option is unknown. Reject it with a pointer to --help
+  // instead of silently ignoring it.
+  const unknown = args.find((a) => a.startsWith("-"));
+  if (unknown !== undefined) {
+    process.stderr.write(`error: unknown option '${unknown}'\n`);
+    process.stderr.write("run 'oss-starter --help' for usage.\n");
+    process.exitCode = 1;
+    return;
+  }
+
   const name = args.find((a) => !a.startsWith("-"));
   process.stdout.write(greet({ name }) + "\n");
 }

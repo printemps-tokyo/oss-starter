@@ -15,8 +15,18 @@ function captureStdout(): string[] {
   return chunks;
 }
 
+function captureStderr(): string[] {
+  const chunks: string[] = [];
+  vi.spyOn(process.stderr, "write").mockImplementation((chunk) => {
+    chunks.push(String(chunk));
+    return true;
+  });
+  return chunks;
+}
+
 afterEach(() => {
   vi.restoreAllMocks();
+  process.exitCode = 0;
 });
 
 describe("readVersion", () => {
@@ -42,5 +52,15 @@ describe("main", () => {
     const chunks = captureStdout();
     main(["node", "cli", "printemps"]);
     expect(chunks.join("")).toBe("Hello, printemps!\n");
+  });
+
+  it("rejects an unknown flag with an error and a --help hint, exit 1", () => {
+    captureStdout();
+    const errChunks = captureStderr();
+    main(["node", "cli", "--definitely-not-a-real-flag"]);
+    expect(process.exitCode).toBe(1);
+    const err = errChunks.join("");
+    expect(err).toContain("error:");
+    expect(err).toContain("--help");
   });
 });
