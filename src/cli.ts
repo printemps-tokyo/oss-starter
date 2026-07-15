@@ -51,10 +51,17 @@ export function main(argv: string[]): void {
 
 // Run only when executed as a script (e.g. `node dist/cli.js`),
 // not when imported from tests.
-const invokedAsScript =
-  process.argv[1] !== undefined &&
-  import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href;
+function invokedAsScript(): boolean {
+  if (process.argv[1] === undefined) return false;
+  try {
+    return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href;
+  } catch {
+    // argv[1] may not resolve to a real file (bundlers, deleted paths,
+    // single-executable builds); treat that as not being run directly.
+    return false;
+  }
+}
 
-if (invokedAsScript) {
+if (invokedAsScript()) {
   main(process.argv);
 }
