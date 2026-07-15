@@ -1,11 +1,29 @@
 #!/usr/bin/env node
+import { readFileSync, realpathSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { greet } from "./index.js";
 
 /**
  * Minimal zero-dependency CLI.
  * Swap in a parser (e.g. citty / commander) once arguments grow.
  */
-function main(argv: string[]): void {
+
+/**
+ * Read the package version from the adjacent package.json.
+ * Falls back to "0.0.0" if the file cannot be read.
+ */
+export function readVersion(): string {
+  const here = dirname(fileURLToPath(import.meta.url));
+  try {
+    const raw = readFileSync(join(here, "..", "package.json"), "utf8");
+    return (JSON.parse(raw) as { version: string }).version;
+  } catch {
+    return "0.0.0";
+  }
+}
+
+export function main(argv: string[]): void {
   const args = argv.slice(2);
 
   if (args.includes("-h") || args.includes("--help")) {
@@ -22,8 +40,21 @@ function main(argv: string[]): void {
     return;
   }
 
+  if (args.includes("-v") || args.includes("--version")) {
+    process.stdout.write(readVersion() + "\n");
+    return;
+  }
+
   const name = args.find((a) => !a.startsWith("-"));
   process.stdout.write(greet({ name }) + "\n");
 }
 
-main(process.argv);
+// Run only when executed as a script (e.g. `node dist/cli.js`),
+// not when imported from tests.
+const invokedAsScript =
+  process.argv[1] !== undefined &&
+  import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href;
+
+if (invokedAsScript) {
+  main(process.argv);
+}
