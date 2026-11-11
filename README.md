@@ -13,7 +13,7 @@ tool in minutes.
 - TypeScript + ESM: built with `tsup`, exposes both a library (`src/index.ts`) and a CLI (`src/cli.ts`)
 - Tests: `vitest`
 - Lint / typecheck: `eslint` (flat config, typescript-eslint v8) + `tsc --noEmit`
-- CI: lint / typecheck / test / build on Node 20 and 22 (`.github/workflows/ci.yml`)
+- CI: lint / typecheck / test / build on Node 22, 24 and 26 (`.github/workflows/ci.yml`)
 - Release automation: pushing a `v*` tag creates a GitHub Release. Set an `NPM_TOKEN` secret to also publish to npm (`.github/workflows/release.yml`)
 - Community files: issue / PR templates, CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, MIT LICENSE
 

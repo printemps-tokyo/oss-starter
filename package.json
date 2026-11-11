@@ -14,7 +14,7 @@
     "url": "https://github.com/printemps-tokyo/oss-starter/issues"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "bin": {
     "oss-starter": "dist/cli.js"
